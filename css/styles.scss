@@ -1,0 +1,280 @@
+@import "~normalize.css/normalize.css"; /*Normalize.css for more consistent look on different browsers*/
+
+/*COLORS*/
+$black : rgba(0,0,0,1);
+$green: rgba(10, 145, 19, 1);
+$lightgreen : rgba(10, 145, 19, 0.2);
+$lightgrey: rgba(0,0,0,0.2);
+$red: rgba(212, 2, 2,1);
+$white : rgb(255,255,255);
+
+/*GENERAL STYLING*/
+body { 
+    background: linear-gradient(
+      rgba($white, 0.8), 
+      rgba($white, 0.5)
+    ), url('../img/christmastree.jpg') ;
+    
+    background-size:  cover;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    min-width: 320px;
+}
+
+div, p {
+    box-sizing: border-box;
+    border-collapse: collapse;
+}
+
+span {
+    font-family: 'Rye', 'cursive';
+}
+
+/*Width up to 540px*/
+div#intro {
+    
+    h1 {
+        color: $red;
+        font-family: 'Rye', cursive;
+        font-size: 3.5em;
+        margin: 0.5em 0 0 0;
+        text-align: center;
+        } 
+    
+    p {
+        font-size: 1.1em;
+        margin: 1em 1.5em; 
+        text-align: center;
+    }
+}
+
+div#game {
+    display: flex;
+    flex-direction: column;
+    
+    div#points {
+        text-align: center;
+  
+        span {
+            color: $red;
+            display: inline-block;
+            font-size: 4em;
+            padding: 0.1em 0;
+            width: 100%;
+        }
+    }
+    
+    div#clickerContainer {
+        display: flex;
+        align-content: center;
+        width: 300px;
+        height: 300px;
+        margin: auto;
+        
+        div#clicker {
+            align-self: center;
+            background-image: url('./../img/xmasGift.png');
+            background-size: contain;
+            height: 270px;
+            margin: 2em auto;
+            width: 270px;
+            
+            &:hover{
+                width: 290px;
+                height: 290px;
+            }
+            
+            &:active {
+                width: 270px;
+                height: 270px;
+            }
+        }
+    }
+    
+    #upgrades{
+    
+        border: 2px solid $white;
+        background-color: rgba($white, 0.7);
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 2em;
+        
+        div {
+            
+          display: flex;
+            
+            &:nth-child(2n+1) {
+                    background-color: $lightgreen;
+                }    
+            
+            p {
+                margin: 0;
+            }
+                
+            p.noOfUpgrades {
+                align-self: center;
+                color: $green;
+                flex: 0 0 15%;
+                font-family: 'Rye', 'cursive';
+                font-size: 3em;
+                text-align: center;
+            }
+
+            div.info {
+                display: inline-block;
+                flex: 2 auto;
+                margin: auto;
+                padding: 0;
+                
+                h2.name {
+                    color: $green;
+                    font-family: 'Rye', 'cursive';
+                    font-size: 1.3em;
+                    margin: 0.3em 0;
+                    width: 100%;
+                }
+            }
+            
+            div.priceAndBuy {
+                align-items: center;
+                display: flex;
+                flex: 1 0 20%;
+                flex-direction: column;
+                border-radius: 0;
+                padding: 0.4em 0.5em;
+                
+                p.price {
+                    margin: auto auto 0 auto;
+                    text-align: center;
+                    
+                    span {
+                        color: $red;
+                        display: block;
+                        font-size: 1.2em;
+                        padding: 0em;
+                        }
+                    }
+
+                button:disabled {
+                        background-color: $lightgrey;
+                        border: 3px solid $lightgrey;    
+                        color: $lightgrey;
+
+                    &:hover {
+                        background-color: $lightgrey;
+                        color: $lightgrey;
+                        }
+                    
+                }
+
+                button {
+                    align-self: center;
+                    background-color: $green;
+                    border: 3px solid $white;
+                    border-radius: 10px;
+                    color: $white;
+                    font-family: 'Rye', 'cursive';
+                    margin: auto;
+                    max-width: 100%;
+                    padding: 0.6em 2em;
+
+                    &:hover {
+                        background-color: $lightgreen;
+                        color: $green;
+                    }
+                    
+                    &:active {
+                        border-color: $red;
+                        background-color: $red;
+                        color: $white;
+                    }
+                    
+                }    
+            }   
+        }
+    }
+}
+
+@media only screen and (min-width: 720px){  
+    div#game {
+        
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+        
+        div#points {
+            align-items: center;
+            display: flex;
+            flex: 0 0 55%;
+            justify-content: center;    
+            
+
+            p {
+                width: 100%;
+
+                span {
+                display: block;
+                font-size: 4em;    
+                margin: 0 auto;
+                }
+            }
+        }
+    
+        div#clickerContainer { 
+            flex: 0 1 45%;
+            }
+    
+        div#upgrades {
+           flex: 0 auto 80%; 
+
+            div {
+            div.priceAndBuy {
+                flex: 0 0 20%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 960px){
+    div#game {
+    display: block;
+    
+        div#points {
+            float: left;
+            width: 50%;
+        }
+
+        div#clickerContainer {
+            clear: both;
+            float: left;
+            width: 50%;
+        }
+
+        div#upgrades {
+            margin-bottom: 2%;
+            width: 45%;
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    
+    div#game {
+    flex-direction: row;
+        
+    div#points{
+        p{
+            span{
+            font-size: 5em;
+            }
+        }    
+    }
+    
+    #upgrades{
+        margin-top: 1em;
+        }
+    }
+}
